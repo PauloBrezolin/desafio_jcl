@@ -1,0 +1,21 @@
+CREATE DATABASE “matricula”
+
+CREATE TABLE cursos (
+id INT PRIMARY KEY,
+nome VARCHAR(100)
+);
+
+CREATE TABLE alunos (
+id SERIAL PRIMARY KEY,
+nome_completo VARCHAR(80),
+email VARCHAR(80),
+curso_id INT,
+FOREIGN KEY (curso_id) REFERENCES cursos(id)
+);
+
+INSERT INTO cursos (id, nome)
+VALUES
+(1, 'Análise e Desenvolvimento de Sistemas'),
+(2, 'Ciências da Computação'),
+(3, 'Engenharia da Computação'),
+(4, 'Engenharia de Software');
