@@ -2,7 +2,6 @@
 require_once 'connection.php';
 require_once 'cursos.php';
 
-// Função para editar um aluno
 function editarAluno($db, $id, $nome, $email, $curso_id) {
     $sql = "UPDATE alunos SET nome_completo = :nome, email = :email, curso_id = :curso_id WHERE id = :id";
     $stmt = $db->prepare($sql);
@@ -13,7 +12,6 @@ function editarAluno($db, $id, $nome, $email, $curso_id) {
     $stmt->execute();
 }
 
-// Verifica se o formulário foi submetido para editar aluno
 if (isset($_POST['editar'])) {
     try {
         $db = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
