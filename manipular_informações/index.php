@@ -243,11 +243,10 @@ if (isset($_POST['editar'])) {
     <script>
         function confirmarExclusao() {
             var alunoId = document.getElementById('alunoId').value;
-            var confirmacao = confirm("Tem certeza que deseja excluir o aluno de ID " + alunoId + "?");
+            var confirmacao = confirm("Certeza que deseja excluir o aluno de ID " + alunoId + "?");
             return confirmacao;
         }
 
-        // Adicionar evento de confirmação ao formulário de exclusão
         var formExcluirAluno = document.getElementById('formExcluirAluno');
         formExcluirAluno.addEventListener('submit', function(event) {
             var confirmado = confirmarExclusao();
