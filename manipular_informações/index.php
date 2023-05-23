@@ -2,7 +2,6 @@
 require_once 'connection.php';
 require_once 'cursos.php';
 
-// Função para listar todos os alunos
 function listarAlunos($db) {
     $sql = "SELECT * FROM alunos";
     $stmt = $db->query($sql);
@@ -36,7 +35,6 @@ function listarAlunos($db) {
     }
 }
 
-// Função para editar um aluno
 function editarAluno($db, $id, $nome, $email, $curso_id) {
     $sql = "UPDATE alunos SET nome_completo = :nome, email = :email, curso_id = :curso_id WHERE id = :id";
     $stmt = $db->prepare($sql);
@@ -47,7 +45,6 @@ function editarAluno($db, $id, $nome, $email, $curso_id) {
     $stmt->execute();
 }
 
-// Verifica se o formulário foi submetido para listar alunos
 if (isset($_POST['listar'])) {
     try {
         $db = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
@@ -60,7 +57,6 @@ if (isset($_POST['listar'])) {
     }
 }
 
-// Verifica se o formulário foi submetido para editar aluno
 if (isset($_POST['editar'])) {
     try {
         $db = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
@@ -245,7 +241,6 @@ if (isset($_POST['editar'])) {
     </form>
 
     <script>
-        // Função para confirmar exclusão do aluno
         function confirmarExclusao() {
             var alunoId = document.getElementById('alunoId').value;
             var confirmacao = confirm("Tem certeza que deseja excluir o aluno de ID " + alunoId + "?");
